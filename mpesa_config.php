@@ -11,11 +11,11 @@
 // ============================================================
 
 // Your Daraja app credentials.
-define('MPESA_CONSUMER_KEY', 'PASTE_YOUR_CONSUMER_KEY_HERE');
-define('MPESA_CONSUMER_SECRET', 'PASTE_YOUR_CONSUMER_SECRET_HERE');
+define('MPESA_CONSUMER_KEY', 'G6IH49lXRIWExHKWBJtTkVwqPKHwroYmAwDnEzUVFnWwVCih');
+define('MPESA_CONSUMER_SECRET', '5DfA3XMwhqXgj3crS0cXkhPRrgGkOLGzJGpZdHxLiW125OEtj5zqAg73fDAAhnvR');
 
 // The passkey for your shortcode (from your Daraja app).
-define('MPESA_PASSKEY', 'PASTE_YOUR_PASSKEY_HERE');
+define('MPESA_PASSKEY', 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919');
 
 // Your M-Pesa shortcode (till number or paybill).
 // The Daraja sandbox test shortcode is 174379.

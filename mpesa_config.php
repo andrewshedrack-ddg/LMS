@@ -2,15 +2,8 @@
 // ============================================================
 // M-Pesa Daraja settings (STK Push).
 //
-// Fill these in from your Safaricom Daraja app at
-// developer.safaricom.co.ke (create an app, then copy the
-// Consumer Key, Consumer Secret and Passkey for your shortcode).
-//
-// These values are secret. Do NOT share them, and do NOT post
-// this file anywhere public. Keep it on the server only.
-// ============================================================
 
-// Your Daraja app credentials.
+// Daraja app credentials.
 define('MPESA_CONSUMER_KEY', 'G6IH49lXRIWExHKWBJtTkVwqPKHwroYmAwDnEzUVFnWwVCih');
 define('MPESA_CONSUMER_SECRET', '5DfA3XMwhqXgj3crS0cXkhPRrgGkOLGzJGpZdHxLiW125OEtj5zqAg73fDAAhnvR');
 

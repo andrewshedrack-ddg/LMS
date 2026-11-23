@@ -1,11 +1,3 @@
--- ============================================================
--- Laundry Management System - Database
--- Deliverable 3 (Development & Debugging Phase)
--- Database: Laundry_db (MySQL / MariaDB, InnoDB, utf8mb4)
--- Import: phpMyAdmin -> Import, or:
---   mysql -u root -p < laundry_db.sql
--- ============================================================
-
 SET FOREIGN_KEY_CHECKS = 0;
 DROP DATABASE IF EXISTS Laundry_db;
 CREATE DATABASE Laundry_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

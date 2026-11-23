@@ -164,6 +164,7 @@ function status_class($status) {
         case 'Cancelled':  return 'badge-cancelled';
         case 'Paid':       return 'badge-paid';
         case 'Unpaid':     return 'badge-unpaid';
+        case 'Failed':     return 'badge-cancelled';
         default:           return 'badge-plain';
     }
 }

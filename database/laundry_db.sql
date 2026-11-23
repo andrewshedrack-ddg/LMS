@@ -131,6 +131,8 @@ CREATE TABLE Payment (
     Payment_method VARCHAR(100) NOT NULL,
     Payment_time DATETIME NOT NULL,
     Payment_status VARCHAR(20) NOT NULL DEFAULT 'Unpaid',
+    Mpesa_checkout_id VARCHAR(64) NULL,
+    Mpesa_receipt VARCHAR(32) NULL,
     FOREIGN KEY (Order_id) REFERENCES Laundry_Order (Order_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -60,8 +60,12 @@ Customer table first, then the Employee table.
 - My bookings: list of the customer's own orders. A Pending order can
   be cancelled; any other status cannot.
 - Record a payment for an order (amount defaults to the order total,
-  method Cash / M-Pesa / Bank Transfer). This only records the payment
-  as Paid. No real money is taken.
+  method Cash / M-Pesa / Bank Transfer). Cash and Bank Transfer are
+  recorded by hand as Paid. M-Pesa sends a real STK push to the
+  customer's phone: the customer enters their M-Pesa PIN, and the
+  payment is only marked Paid when Safaricom confirms it through the
+  callback. Until then it shows as Pending, and a failed or cancelled
+  payment shows as Failed.
 
 **Admin panel (`admin/`)**
 - Dashboard: today's orders, pending orders, ready orders, and total
@@ -119,10 +123,36 @@ Customer table first, then the Employee table.
   Paid payment and one delivery for the second order so the dashboard
   and reports have something to show.
 
+## M-Pesa STK Push (payment verification)
+
+M-Pesa is wired in through Safaricom Daraja. The files are
+`mpesa_config.php`, `mpesa.php` and `mpesa_callback.php`, and the
+Payment table has two extra columns, `Mpesa_checkout_id` and
+`Mpesa_receipt`. A fresh import of `database/laundry_db.sql` already
+has them. On a database that was imported before this change, run
+`database/mpesa_payments_update.sql` once.
+
+To make real payments work:
+
+1. Create an app at developer.safaricom.co.ke and copy the Consumer
+   Key, Consumer Secret and Passkey into `mpesa_config.php`, plus your
+   shortcode. Keep those values secret.
+2. Host the site on a public address (the app cannot take M-Pesa on
+   localhost), and set `MPESA_CALLBACK_URL` to the public address of
+   `mpesa_callback.php`. It must start with `https`.
+3. Set `MPESA_SANDBOX` to `true` while testing, then `false` for live
+   M-Pesa.
+
+How verification works: when a customer pays by M-Pesa, the system
+sends the STK push and records the payment as Pending with the
+checkout request ID. Safaricom then calls `mpesa_callback.php`.
+Only when that callback reports ResultCode 0 is the payment marked
+Paid and the M-Pesa receipt saved. A cancelled or failed payment is
+marked Failed. So an order is never marked Paid unless Safaricom
+confirms the money arrived.
+
 ## What is NOT in this deliverable
 
-- **No real M-Pesa integration.** Payments are recorded manually as
-  paid or unpaid. No money is taken online.
 - **No SMS.** Order status is shown inside the app, not sent by text.
 - **No forgot-password page.** That is a Deliverable 4 item.
 - **No Jasper or Crystal Reports.** The report is a simple on-screen
@@ -135,8 +165,8 @@ Customer table first, then the Employee table.
 
 ```
 README.md
-database/laundry_db.sql
-config.php
+database/laundry_db.sql, database/mpesa_payments_update.sql
+config.php, mpesa_config.php, mpesa.php, mpesa_callback.php
 index.php, register.php, login.php, logout.php
 dashboard.php, book.php, my-bookings.php, payment.php
 css/style.css

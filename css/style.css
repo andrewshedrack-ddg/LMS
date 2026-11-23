@@ -1,0 +1,152 @@
+/* Laundry Management System - clean, simple, professional styling. */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #222;
+    background: #f4f6f8;
+}
+
+a { color: #1f3864; }
+a:hover { color: #2f5496; }
+
+/* ---- header and navigation ---- */
+header {
+    background: #1f3864;
+    color: #fff;
+    padding: 12px 0;
+}
+header .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+header h1 a { color: #fff; text-decoration: none; }
+nav a {
+    color: #dbe4f0;
+    text-decoration: none;
+    margin-left: 14px;
+    font-size: 14px;
+}
+nav a:hover { color: #fff; text-decoration: underline; }
+nav .who { color: #ffd966; margin-left: 14px; font-size: 14px; }
+
+/* ---- page layout ---- */
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+main { padding: 20px 0 40px; }
+h2 { color: #1f3864; margin-top: 0; }
+h3 { color: #1f3864; }
+
+/* ---- cards and boxes ---- */
+.card {
+    background: #fff;
+    border: 1px solid #d9dee6;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+.grid { display: flex; gap: 16px; flex-wrap: wrap; }
+.grid .card { flex: 1 1 220px; }
+.big { font-size: 26px; font-weight: bold; color: #1f3864; }
+.muted { color: #666; font-size: 13px; }
+
+/* ---- messages ---- */
+.alert { padding: 10px 14px; border-radius: 4px; margin-bottom: 16px; }
+.alert-success { background: #e6f4ea; border: 1px solid #a3d9a5; color: #1e5c2a; }
+.alert-error { background: #fdecea; border: 1px solid #f5a9a2; color: #7a1f1a; }
+
+/* ---- forms ---- */
+label { display: block; margin: 12px 0 4px; font-weight: bold; }
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="date"], input[type="datetime-local"],
+select, textarea {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #b9c2cf;
+    border-radius: 4px;
+    font-size: 15px;
+    background: #fff;
+}
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #2f5496;
+    border-color: #2f5496;
+}
+.form-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.form-row > div { flex: 1 1 200px; }
+.help { font-size: 13px; color: #666; margin-top: 4px; }
+
+/* ---- buttons ---- */
+.btn {
+    display: inline-block;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 4px;
+    background: #1f3864;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 14px;
+}
+.btn:hover { background: #2f5496; color: #fff; }
+.btn-secondary { background: #5a6b7d; }
+.btn-secondary:hover { background: #6b7d90; }
+.btn-danger { background: #a94442; }
+.btn-danger:hover { background: #c0392b; }
+.btn-small { padding: 5px 10px; font-size: 13px; margin-top: 0; }
+
+/* ---- tables ---- */
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 9px 10px; border-bottom: 1px solid #d9dee6; text-align: left; vertical-align: top; }
+th { background: #eef1f5; color: #1f3864; }
+tr:hover td { background: #f7f9fb; }
+.table-wrap { overflow-x: auto; }
+
+/* ---- status badges ---- */
+.badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.badge-pending   { background: #fff3cd; color: #7a5b00; }
+.badge-picked    { background: #d6e4f0; color: #1f3864; }
+.badge-washing   { background: #e0d4f7; color: #4a2d7a; }
+.badge-ready     { background: #d4edda; color: #1e5c2a; }
+.badge-collected { background: #d9dee6; color: #333; }
+.badge-cancelled { background: #f8d7da; color: #7a1f1a; }
+.badge-paid      { background: #d4edda; color: #1e5c2a; }
+.badge-unpaid    { background: #fff3cd; color: #7a5b00; }
+.badge-plain     { background: #eef1f5; color: #333; }
+
+/* ---- price list ---- */
+.price-list { list-style: none; padding: 0; margin: 0; }
+.price-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e3e8ee;
+}
+.price-list li:last-child { border-bottom: none; }
+
+/* ---- print: only the report prints ---- */
+@media print {
+    header, nav, .no-print { display: none !important; }
+    body { background: #fff; }
+    .card { border: 1px solid #999; }
+}

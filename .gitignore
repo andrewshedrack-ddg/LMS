@@ -1,0 +1,7 @@
+# Laundry Management System - Deliverable 3
+# Student project. Nothing important is ignored.
+# (OS and editor files only.)
+
+.DS_Store
+Thumbs.db
+*.log
